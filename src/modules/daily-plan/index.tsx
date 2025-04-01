@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { Card, List, Button, Modal, Form, Input, DatePicker, Select, Badge, Checkbox, Dropdown } from "antd"
-import { EditOutlined, DeleteOutlined, MoreOutlined, ClockCircleOutlined } from "@ant-design/icons"
-import type { MenuProps } from "antd"
+import { Button, Modal, Form, Input, DatePicker, Select, } from "antd"
+import { PlusIcon } from "lucide-react"
+
 import dayjs from "dayjs"
-import { ArrowDownIcon, ArrowUp, PlusIcon } from "lucide-react"
+import DailyPlanCards from "./components/cards"
 
 
 const { Option } = Select
@@ -33,12 +33,43 @@ export default function DailyPlan() {
     },
     {
       id: "3",
-      title: "Kitob o'qish",
-      description: "Atomic Habits kitobidan 30 bet o'qish",
+      title: "O'qish",
+      description: "Darsni o'qish",
       completed: false,
       priority: "low",
-      category: "shaxsiy",
-      deadline: "2023-06-15 20:00",
+      category: "ta'lim",
+      deadline: "2023-06-15 10:00",
+
+    },
+    {
+      id: "4",
+      title: "O'qish",
+      description: "Darsni o'qish",
+      completed: false,
+      priority: "low",
+      category: "ta'lim",
+      deadline: "2023-06-15 10:00",
+
+    },
+    {
+      id: "5",
+      title: "O'qish",
+      description: "Darsni o'qish",
+      completed: false,
+      priority: "low",
+      category: "ta'lim",
+      deadline: "2023-06-15 10:00",
+
+    },
+    {
+      id: "6",
+      title: "O'qish",
+      description: "Darsni o'qish",
+      completed: false,
+      priority: "low",
+      category: "ta'lim",
+      deadline: "2023-06-15 10:00",
+
     },
   ])
 
@@ -101,65 +132,16 @@ export default function DailyPlan() {
     })
   }
 
-  const handleDelete = (id: any) => {
-    setTasks(tasks.filter((task) => task.id !== id))
-  }
 
-  const toggleComplete = (id: any) => {
-    setTasks(tasks.map((task) => (task.id === id ? { ...task, completed: !task.completed } : task)))
-  }
 
-  const getPriorityColor = (priority: any) => {
-    switch (priority) {
-      case "high":
-        return "error"
-      case "medium":
-        return "warning"
-      case "low":
-        return "success"
-      default:
-        return "default"
-    }
-  }
-
-  const getDropdownItems = (task: any): MenuProps["items"] => [
-    {
-      key: "1",
-      label: "Tahrirlash",
-      icon: <EditOutlined />,
-      onClick: () => showModal(task),
-    },
-    {
-      key: "2",
-      label: "O'chirish",
-      icon: <DeleteOutlined />,
-      danger: true,
-      onClick: () => handleDelete(task.id),
-    },
-  ]
-
-  const moveTaskUp = (index: any) => {
-    if (index === 0) return
-    const newTasks = [...tasks]
-    const temp = newTasks[index]
-    newTasks[index] = newTasks[index - 1]
-    newTasks[index - 1] = temp
-    setTasks(newTasks)
-  }
-
-  const moveTaskDown = (index: any) => {
-    if (index === tasks.length - 1) return
-    const newTasks = [...tasks]
-    const temp = newTasks[index]
-    newTasks[index] = newTasks[index + 1]
-    newTasks[index + 1] = temp
-    setTasks(newTasks)
-  }
 
   return (
     <div className="  w-full px-6  pt-6 ">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-[#838383] ">Kundalik Reja</h1>
+        <div className="gap-8 flex items-center">
+          <h1 className="text-2xl font-bold text-[#838383] ">Kundalik Reja</h1>
+          <DatePicker />
+        </div>
         <Button
           type="primary"
           icon={<PlusIcon />}
@@ -169,58 +151,7 @@ export default function DailyPlan() {
         </Button>
       </div>
 
-      <Card className="bg-white border-0 ">
-        <List
-          itemLayout="horizontal"
-          dataSource={tasks}
-          renderItem={(task, index) => (
-            <List.Item
-              key={task.id}
-              className={`mb-2 p-4 border  rounded-lg bg-[#EDF1F7] ${task.completed ? "bg-gray-50" : ""}`}
-              actions={[
-                <div key="actions" className="flex ">
-                  {index > 0 && (
-                    <Button type="text" onClick={() => moveTaskUp(index)} className="">
-                      <ArrowUp stroke="green" />
-                    </Button>
-                  )}
-                  {index < tasks.length - 1 && (
-                    <Button type="text" onClick={() => moveTaskDown(index)} className="">
-                      <ArrowDownIcon stroke="green" />
-                    </Button>
-                  )}
-                  <Dropdown className="bg-slate-400" menu={{ items: getDropdownItems(task) }} trigger={["click"]}>
-                    <Button type="text" icon={<MoreOutlined />} />
-                  </Dropdown>
-                </div>,
-              ]}
-            >
-              <div className="flex items-center w-full px-2">
-                <Checkbox checked={task.completed} onChange={() => toggleComplete(task.id)} className="mr-3" />
-                <div className="flex-1">
-                  <div className="flex items-center">
-                    <span className={`font-medium text-[#838383] ${task.completed ? "line-through text-gray-400" : ""}`}>
-                      {task.title}
-                    </span>
-                    <Badge className="ml-2" status={getPriorityColor(task.priority)} />
-                  </div>
-                  <div className="text-sm text-gray-500 mt-1">{task.description}</div>
-                  {task.deadline && (
-                    <div className="text-xs text-gray-400 mt-1 flex items-center">
-                      <ClockCircleOutlined className="mr-1" />
-                      {task.deadline}
-                    </div>
-                  )}
-                </div>
-                <div>
-                  <span className="text-xs px-2 py-1 rounded-full bg-white">{task.category}</span>
-                </div>
-              </div>
-            </List.Item>
-          )}
-        />
-      </Card>
-
+      <DailyPlanCards />
       <Modal
         title={editingTask ? "Vazifani tahrirlash" : "Yangi vazifa qo'shish"}
         open={isModalVisible}
@@ -266,9 +197,10 @@ export default function DailyPlan() {
             </Select>
           </Form.Item>
 
-          <Form.Item name="deadline" label="Muddat">
-            <DatePicker showTime format="YYYY-MM-DD HH:mm" />
+          <Form.Item label="Muddat">
+            <DatePicker.RangePicker placeholder={["Dan", "Gacha"]} showTime format="YYYY-MM-DD HH:mm" />
           </Form.Item>
+
         </Form>
       </Modal>
     </div>

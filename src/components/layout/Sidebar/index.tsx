@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Button, Layout, Modal } from "antd";
 import { NavLink, useNavigate } from "react-router-dom";
 
-import { Award, Calendar, ChartNoAxesCombined, DatabaseZap, LayoutDashboard, LogOut, SettingsIcon, UserRound } from "lucide-react";
+import { Award, Calendar, ChartNoAxesCombined, DatabaseZap, LayoutDashboard, LogOut, NotebookPenIcon, SettingsIcon, UserRound } from "lucide-react";
+import LogoText from "assets/icons/LogoText";
 const { Sider } = Layout;
 
 const Sidebar: React.FC = () => {
@@ -32,7 +33,7 @@ const Sidebar: React.FC = () => {
           <div className="  h-[68px] px-4 border-b  text-xl font-bold flex items-center space-x-2">
 
 
-            DailyPlan
+            <LogoText />
           </div>
           <div className="space-y-2 mt-3 px-4">
             <NavLink
@@ -105,6 +106,18 @@ const Sidebar: React.FC = () => {
             >
               <UserRound />
               <span>Profil</span>
+
+            </NavLink>
+            <NavLink
+              to="/notes"
+              className={({ isActive }) =>
+                `w-full text-[17px] flex items-center gap-3 px-3 py-2 rounded-lg ${isActive ? "bg-[#EDF1F7] text-[#838383]  " : ""
+                }`
+              }
+
+            >
+              <NotebookPenIcon />
+              <span>Qaydlar</span>
 
             </NavLink>
           </div>
