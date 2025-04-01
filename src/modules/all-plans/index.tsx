@@ -6,8 +6,6 @@ import {
     ClockCircleOutlined,
     PlusOutlined,
     SearchOutlined,
-    EditOutlined,
-    DeleteOutlined,
     ArrowUpOutlined,
     ArrowDownOutlined,
     RightOutlined,
@@ -32,6 +30,7 @@ import {
     Tooltip,
     Empty,
 } from "antd"
+import { PencilLine, Trash2Icon } from "lucide-react"
 
 const { Option } = Select
 const { TextArea } = Input
@@ -435,8 +434,8 @@ export default function TaskList() {
                         </Tooltip>
                     )}
 
-                    <Button type="text" icon={<EditOutlined />} onClick={() => handleEditTask(task)} />
-                    <Button type="text" danger icon={<DeleteOutlined />} onClick={() => handleDeleteTask(task.id)} />
+                    <Button type="text" icon={<PencilLine />} onClick={() => handleEditTask(task)} />
+                    <Button type="text" danger icon={<Trash2Icon />} onClick={() => handleDeleteTask(task.id)} />
                 </Space>,
             ]}
         >

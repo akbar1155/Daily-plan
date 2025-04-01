@@ -11,6 +11,7 @@ const Profile = lazy(() => import("modules/profile/list/index"))
 const Settings = lazy(() => import("modules/settings/index"))
 const AuthPage = lazy(() => import("pages/auth/index"))
 const AllPlans = lazy(() => import("modules/all-plans/index"))
+const NotesContainer = lazy(() => import("modules/notes/index"))
 
 
 // Fix for React Router future flag warnings
@@ -80,6 +81,15 @@ const router = createBrowserRouter(
           element: (
             <Suspense fallback={<div>Loading...</div>}>
               <AllPlans />
+            </Suspense>
+          ),
+        },
+        {
+          index: true,
+          path: "notes",
+          element: (
+            <Suspense fallback={<div>Loading...</div>}>
+              <NotesContainer />
             </Suspense>
           ),
         }

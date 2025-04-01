@@ -79,15 +79,10 @@ export default function Statistics() {
   ];
 
 
-
-
-
-
-
   return (
     <div className="analytics m-6">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Statistikalar</h1>
+        <h1 className="text-2xl font-bold">Statistikalar </h1>
         <RangePicker />
       </div>
 
