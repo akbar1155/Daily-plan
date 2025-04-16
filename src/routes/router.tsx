@@ -9,7 +9,7 @@ const Goals = lazy(() => import("modules/goals"))
 const Statistics = lazy(() => import("modules/Statistics"))
 const Profile = lazy(() => import("modules/profile/list/index"))
 const Settings = lazy(() => import("modules/settings/index"))
-const AuthPage = lazy(() => import("pages/auth/index"))
+const AuthPage = lazy(() => import("pages/Login/index"))
 const AllPlans = lazy(() => import("modules/all-plans/index"))
 const NotesContainer = lazy(() => import("modules/notes/index"))
 
