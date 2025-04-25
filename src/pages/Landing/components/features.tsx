@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import { Card, Col, Row, Typography } from "antd"
 import { motion, useInView, useAnimation } from "framer-motion"
-import { CalendarCheck, Clock, LinkIcon, Mic, RefreshCw, Bell, Webhook, Sparkles } from "lucide-react"
+import { CalendarCheck, Clock, LinkIcon, Mic, RefreshCw, Bell, Sparkles } from "lucide-react"
 
 const { Title, Paragraph } = Typography
 
@@ -156,15 +156,6 @@ export default function FeaturesSection() {
         },
     ]
 
-    const wideFeature = {
-        title: "Integratsiya va avtomatlashtirish",
-        description: [
-            "• Google Calendar, Telegram bot yoki smart home bilan bog'lanishi mumkin.",
-            "• Masalan, \"Iloji bo'lsa, bugungi rejamni Telegram'ga jo'nat.\"",
-        ],
-        icon: <Webhook size={32} />,
-        color: "yellow",
-    }
 
     const getGradient = (color: string) => {
         const gradients: Record<string, string> = {
@@ -369,100 +360,7 @@ export default function FeaturesSection() {
                         </Col>
                     ))}
 
-                    <Col xs={24}>
-                        <motion.div
-                            custom={features.length}
-                            variants={cardVariants}
-                            initial="hidden"
-                            animate={controls}
-                            whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                        >
-                            <Card
-                                hoverable
-                                className="feature-card feature-card-wide rounded-xl overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-300 relative bg-gradient-to-br from-white to-yellow-50"
-                                bodyStyle={{ padding: "32px" }}
-                            >
-                                <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-yellow-400 to-yellow-600"></div>
 
-                                {/* Animated particles for wide card */}
-                                {[...Array(5)].map((_, i) => (
-                                    <motion.div
-                                        key={`wide-particle-${i}`}
-                                        className="absolute w-2 h-2 rounded-full bg-yellow-400"
-                                        style={{
-                                            top: `${20 + Math.random() * 60}%`,
-                                            left: `${20 + Math.random() * 60}%`,
-                                            opacity: 0,
-                                        }}
-                                        animate={{
-                                            opacity: [0, 0.7, 0],
-                                            scale: [0, 1, 0],
-                                            x: [0, Math.random() * 40 - 20],
-                                            y: [0, Math.random() * 40 - 20],
-                                        }}
-                                        transition={{
-                                            duration: 3,
-                                            repeat: Number.POSITIVE_INFINITY,
-                                            repeatDelay: Math.random() * 5,
-                                            delay: i * 1,
-                                        }}
-                                    />
-                                ))}
-
-                                <div className="flex flex-col md:flex-row md:items-center">
-                                    <div className="mb-6 md:mb-0 md:mr-8">
-                                        <motion.div
-                                            variants={iconContainerVariants}
-                                            whileHover="hover"
-                                            className={`feature-icon-container ${getIconBg(wideFeature.color)} w-20 h-20 rounded-2xl flex items-center justify-center relative overflow-hidden`}
-                                        >
-                                            {/* Animated background for icon */}
-                                            <motion.div
-                                                className="absolute inset-0 opacity-30"
-                                                animate={{
-                                                    background: [
-                                                        `radial-gradient(circle at 30% 30%, ${getIconColor(wideFeature.color).replace("text", "rgb")}, transparent 70%)`,
-                                                        `radial-gradient(circle at 70% 70%, ${getIconColor(wideFeature.color).replace("text", "rgb")}, transparent 70%)`,
-                                                    ],
-                                                }}
-                                                transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
-                                            />
-
-                                            <div className={`feature-icon ${getIconColor(wideFeature.color)} relative z-10`}>
-                                                {wideFeature.icon}
-                                            </div>
-
-                                            {/* Sparkle effect */}
-                                            <motion.div
-                                                className="absolute top-0 right-0"
-                                                initial={{ opacity: 0, scale: 0 }}
-                                                animate={{ opacity: [0, 1, 0], scale: [0, 1, 0], rotate: [0, 15, 0] }}
-                                                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, repeatDelay: 5 }}
-                                            >
-                                                <Sparkles size={14} className="text-yellow-400" />
-                                            </motion.div>
-                                        </motion.div>
-                                    </div>
-                                    <div className="flex-1">
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: 0.8, duration: 0.5 }}
-                                        >
-                                            <Title level={3} className="mb-4 font-bold">
-                                                {wideFeature.title}
-                                            </Title>
-                                            {wideFeature.description.map((paragraph, i) => (
-                                                <Paragraph key={i} className="text-gray-600 text-lg">
-                                                    {paragraph}
-                                                </Paragraph>
-                                            ))}
-                                        </motion.div>
-                                    </div>
-                                </div>
-                            </Card>
-                        </motion.div>
-                    </Col>
                 </Row>
             </div>
         </div>
