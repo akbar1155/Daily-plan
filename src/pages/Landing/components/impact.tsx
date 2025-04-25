@@ -215,7 +215,7 @@ export default function ImpactSection() {
                     transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, delay: 2 }}
                 ></motion.div>
                 <motion.div
-                    className="absolute top-1/2 left-1/2 transform  w-96 h-96 rounded-full bg-gradient-to-tr from-purple-200/10 to-purple-400/10 blur-3xl"
+                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-gradient-to-tr from-purple-200/10 to-purple-400/10 blur-3xl"
                     animate={{
                         scale: [1, 1.2, 1],
                         opacity: [0.2, 0.4, 0.2],

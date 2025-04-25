@@ -284,7 +284,7 @@ export default function HeroSection() {
                                         <Button
                                             type="primary"
                                             size="large"
-                                            className="w-full h-14 text-lg bg-gradient-to-r from-blue-500 to-blue-600 border-none shadow-md"
+                                            className="h-12 px-8 text-base font-medium bg-gradient-to-r from-blue-500 to-purple-600 border-none shadow-md"
                                         >
                                             Boshlash
                                         </Button>
