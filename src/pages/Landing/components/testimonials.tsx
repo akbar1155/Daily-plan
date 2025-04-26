@@ -97,7 +97,7 @@ export default function TestimonialsSection() {
     }
 
     return (
-        <section className="py-20 px-4 bg-gradient-to-b from-white to-slate-50 overflow-hidden" ref={ref} id="feedback">
+        <section className="pb-20 !pt-32 px-4 bg-gradient-to-b from-white to-slate-50 overflow-hidden" ref={ref} id="feedback">
             {/* Decorative elements */}
             <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-cyan-100/30 blur-3xl -z-10"></div>
             <div className="absolute bottom-20 left-10 w-64 h-64 rounded-full bg-blue-100/30 blur-3xl -z-10"></div>

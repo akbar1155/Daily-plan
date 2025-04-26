@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Button, Image, Layout, Space } from "antd"
+import { Button, Layout, Space } from "antd"
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons"
 import { motion, AnimatePresence } from "framer-motion"
 import { Link } from "react-router-dom"
@@ -164,13 +164,9 @@ export default function HeaderLanding() {
                         animate="animate"
                         className="flex items-center"
                     >
-                        <Image
-                            src={Logo}
-                            alt="Logo"
-                            width={180}
-                            // height={160}
-                            className="h-10 w-auto"
-                        />
+                        <Link to={"/"} className="flex items-center h-24 w-44">
+                            <img src={Logo} alt="AI Task Manager" />
+                        </Link>
                     </motion.div>
 
                     <div className="menu-toggle block md:hidden" onClick={toggleMenu}>
