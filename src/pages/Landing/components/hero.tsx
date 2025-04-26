@@ -200,7 +200,7 @@ export default function HeroSection() {
 
     return (
         <div
-            className="hero-section relative pt-32 mt-20 pb-20 overflow-hidden min-h-[90vh] flex items-center"
+            className="hero-section relative pt-32 mt-20  pb-20  overflow-hidden min-h-[90vh] flex items-center"
             id="main"
             ref={containerRef}
         >
@@ -244,7 +244,7 @@ export default function HeroSection() {
                 />
             ))}
 
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container mx-auto  relative z-10">
                 <Row justify="center" align="middle" gutter={[0, 24]}>
                     <Col xs={24} md={12} lg={10}>
                         <motion.div
@@ -257,7 +257,7 @@ export default function HeroSection() {
                                 level={1}
                                 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600"
                             >
-                                AI yordamida vazifalaringizni boshqaring
+                                Sun'iy intellekt yordamida vazifalaringizni boshqaring
                             </Title>
                         </motion.div>
 
@@ -268,7 +268,7 @@ export default function HeroSection() {
                             className="text-center md:text-left"
                         >
                             <Paragraph className="hero-paragraph text-lg md:text-xl text-gray-600 mt-4 mb-8">
-                                Sun&apos;iy intellekt bilan ishlash samaradorligingizni oshiring va vaqtingizni tejang
+                                Ishlash samaradorligingizni oshiring va vaqtingizni tejang
                             </Paragraph>
                         </motion.div>
 
@@ -303,13 +303,13 @@ export default function HeroSection() {
                     <Col xs={24} md={12} lg={14}>
                         <motion.div
                             style={{ y, opacity }}
-                            className="hero-visual-container mt-12 md:mt-0 relative h-[400px] md:h-[500px]"
+                            className="hero-visual-container  md:mt-0 relative h-[400px] md:h-[500px]"
                         >
                             {/* Interactive 3D Dashboard Visualization */}
                             <div className="relative w-full h-full perspective-1000">
                                 {/* Main dashboard frame */}
                                 <motion.div
-                                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[80%] bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100"
+                                    className="absolute top-[5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[100%] bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100"
                                     style={{
                                         rotateX: dashboardRotateX,
                                         rotateY: dashboardRotateY,
@@ -401,7 +401,7 @@ export default function HeroSection() {
                                 {taskCards.map((card, index) => (
                                     <motion.div
                                         key={index}
-                                        className={`absolute top-1/2 left-1/2 bg-white rounded-lg shadow-lg overflow-hidden w-48 border border-gray-100`}
+                                        className={`absolute top-[24%] left-1/3 bg-white rounded-lg shadow-lg overflow-hidden w-48 border border-gray-100`}
                                         initial={{ opacity: 0, x: 0, y: 0, rotate: 0 }}
                                         animate={{
                                             opacity: 1,

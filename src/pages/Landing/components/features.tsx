@@ -198,10 +198,9 @@ export default function FeaturesSection() {
 
     return (
         <div
-            className="features-section py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden"
+            className="features-section pb-20 !pt-32 bg-gradient-to-b  from-gray-50 to-white relative overflow-hidden"
             id="feature"
         >
-            {/* Background elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full">
                     {/* Grid pattern */}
@@ -273,7 +272,7 @@ export default function FeaturesSection() {
                                 variants={cardVariants}
                                 initial="hidden"
                                 animate={controls}
-                                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                                // whileHover={{ y: -8, transition: { duration: 0.3 } }}
                                 className="h-full"
                             >
                                 <Card

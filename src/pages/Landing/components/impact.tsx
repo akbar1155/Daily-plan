@@ -182,7 +182,7 @@ export default function ImpactSection() {
 
     return (
         <div
-            className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-slate-100 py-20 px-4 sm:px-6 lg:px-8"
+            className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-slate-100 pb-20 !pt-32 px-4 sm:px-6 lg:px-8"
             id="result"
             ref={containerRef}
         >
