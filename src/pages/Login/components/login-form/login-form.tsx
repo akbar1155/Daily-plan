@@ -2,6 +2,7 @@ import { Button, Form } from "antd";
 import InputField from "pages/Login/components/inputField";
 
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function LoginForm() {
 
@@ -38,9 +39,11 @@ export default function LoginForm() {
 
       <InputField name="password" label="Password" type="password" required />
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="w-full">
-          {t("Enter")}
-        </Button>
+        <Link to={"/home"}>
+          <Button type="primary" htmlType="submit" className="w-full" >
+            {t("Enter")}
+          </Button>
+        </Link>
       </Form.Item>
     </Form>
   );

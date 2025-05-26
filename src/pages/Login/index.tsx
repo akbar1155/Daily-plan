@@ -1,5 +1,4 @@
 import { useState } from "react";
-import VerificationForm from "./components/form/verificationForm";
 import LoginForm from "pages/Login/components/login-form/login-form";
 import RegistrationForm from "./components/registration-form";
 import { useTranslation } from "react-i18next";
@@ -21,7 +20,7 @@ export default function AuthPage() {
                 {isLogin ? (
                     <LoginForm />
                 ) : showVerification ? (
-                    <VerificationForm />
+                    <>salom</>
                 ) : (
                     <RegistrationForm onSuccess={() => { setIsLogin(true) }} />
                 )}
